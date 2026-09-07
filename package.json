@@ -1,0 +1,26 @@
+{
+  "name": "strava-notion",
+  "version": "1.0.0",
+  "description": "Sync Strava rides into a Notion database, two ways:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichochar/strava-notion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nichochar/strava-notion/issues"
+  },
+  "homepage": "https://github.com/nichochar/strava-notion#readme",
+  "private": "true",
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "typescript": "^7.0.2"
+  }
+}
