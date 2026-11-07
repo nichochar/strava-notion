@@ -39,6 +39,7 @@ Everything lives in [worker/src/index.ts](worker/src/index.ts):
 All `ntn workers` commands run from `worker/` (that's where `workers.json` lives).
 
 ```sh
+./test.sh                            # pre-deploy check (see below)
 ntn workers sync status              # health dashboard
 ntn workers sync trigger activitiesDelta       # sync now
 ntn workers sync state reset activitiesBackfill && \
@@ -46,6 +47,12 @@ ntn workers sync state reset activitiesBackfill && \
 ntn workers runs list                # run history
 ntn workers deploy --yes             # ship code changes (state survives deploys)
 ```
+
+`test.sh` type-checks, then runs both syncs **locally** in preview mode
+against real Strava data (nothing is written to Notion) and checks the rows
+and backfill pagination. Local runs can't use the deployed worker's OAuth
+token, so it mints one from `STRAVA_REFRESH_TOKEN` in `worker/.env.test`
+(gitignored; kept out of `worker/.env` because `env push` uploads that file).
 
 Changing the schema? Edit the `Schema` block, deploy, then re-trigger the
 backfill so old rows get the new properties.
